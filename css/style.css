@@ -1,5 +1,130 @@
+html, body{
+    margin: 0;
+
+}
+
+html, body, header, .page-title,img, footer {
+    width: 100%;
+}
+
+/*Center the main heading*/
+.page-title {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5rem 0 0 0;
+    font-size: 4rem;
+}
+
+/*Add a style to change the background color of the page.*/
+/*Add a style to change the color of the headers on your page and make them underlined.*/
+/*Add a style to add a background image to your background. Search how to manipulate the position, sizing of this background image.*/
+body {
+    background-image: url("../img/veridian_background.jpg");
+    background-size: cover;
+    font-family: Roboto, sans-serif;
+}
+
+header {
+    background: linear-gradient(180deg, rgba(0,0,0,1) -20%, rgba(36,41,46,1) 18%, rgba(36,41,46,1) 100%);
+    color: #ebecf1;
+    width: 100%;
+    border-bottom: 2px solid #07031a;
+}
+
+header p {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 0;
+    padding-bottom: 50px;
+}
+
+main {
+    width: 75%;
+    background-color: #ebecf1;
+    margin: 0 12%;
+    border-left: 4px solid #07031a;
+    border-right: 4px solid #07031a;
+}
+
+/*Add a style to change the list-style to something other than the default bullet.*/
+li {
+    list-style: circle;
+}
+
+.about, .products {
+    width: 100%;
+}
+.about-list {
+    display: inline-block;
+    margin: 2rem;
+    padding: 2rem 5rem 2rem 2rem;
+}
+
+.about-list:nth-child(-n + 2) {
+    border-right: 2px solid #24292E;
+}
+
+h2 {
+    text-align: center;
+}
+/*Add a style to change the font for the entire page. Use google fonts if you would like.*/
 
 
-.fancy_container {
-    color: red;
+/*Add a style to change the table, table cells td and rows tr padding and font sizes.*/
+
+
+/*Add a style to alter the anchor tags and its different states. (e.g. link, visited, hover and active).*/
+
+footer h3 a:visited {
+    color: white;
+}
+
+footer h3 a:hover {
+    font-size: 1.25rem;
+    color: white;
+}
+
+/*Continue experimenting with styles to increase the visual appeal of the page.*/
+.company-vision th {
+    margin: 0;
+    padding: 10px 12px 10px 10px;
+}
+img {
+    border: 2px solid #3b6978;
+    border-radius: 15px;
+}
+
+main>p {
+    margin-bottom: 0;
+}
+
+.products-list {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
+.products-list th {
+    text-decoration: underline;
+    font-size: 1.5rem;
+}
+
+.products-list th, .products-list td {
+    width: 400px;
+}
+
+em {
+    margin-left: 10px;
+}
+
+footer {
+    background: linear-gradient(360deg, rgba(0,0,0,1) -20%, rgba(36,41,46,1) 18%, rgba(36,41,46,1) 100%);
+    text-align: center;
+}
+
+footer h3 {
+    margin: 0;
+    padding: 50px;
+    border-top: 1px solid #07031a;
 }

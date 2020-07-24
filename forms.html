@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Register With Us</title>
+	<link rel="stylesheet" type="text/css" href="css/forms_styles.css">
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			
+		</header>
+		<main>
+			<div class="user_form">
+				<form method="POST" action="https://request-inspector.glitch.me/">
+					<!-- <label for="email" >Email: </label> -->
+					<input type="text" name="email" id="email" placeholder="E-mail Address"><br/>
+					<!-- <label for="pw" >Password: </label> -->
+					<input type="password" name="pw" id="pw" placeholder="Password"><br/>
+					<label for="bio">Tell us about yourself: </label><br/>
+					<textarea name="bio" id="bio" cols="50" rows="10"></textarea><br/>
+					<h3>How did you hear about us?</h3>
+					<label for="billboard">
+						Billboard <input type="radio" name="billboard" value="billboard"><br/>
+					</label>
+					<label for="radio_advertisement">
+						Radio advertisement <input type="radio" name="radio_advertisement" value="radio_advertisement"><br/>
+					</label>
+					<label for="internet_advertisement">
+						Internet advertisement <input type="radio" name="internet_advertisement" value="internet_advertisement"><br/>
+					</label>
+					<label for="other">
+						Other <input type="radio" name="other" value="other"><br/>
+					</label>
+					<label for="user_browser">What browser are you using?</label>
+					<select name="user_browser">
+					    <option value="firefox">Firefox</option>
+					    <option value="chrome">Chrome</option>
+					    <option value="edge">Edge</option>
+					    <option value="safari">Safari</option>
+					</select><br/>
+				
+					<button type="submit">Send</button>
+				</form>
+			</div>	
+		</main>
+		<footer>
+			
+		</footer>
+	</div>	
+</body>
+</html>

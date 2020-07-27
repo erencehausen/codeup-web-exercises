@@ -4,14 +4,15 @@
     --main-link-color: #848487;
     --light-bg: #FFF;
     --separator-color: #DDD;
+    --hundred-per: 100%;
 }
 * {
     box-sizing: border-box;
 }
 body, html {
     background-color: var(--main-bg);
-    height: 100%;
-    width: 100%;
+    height: var(--hundred-per);
+    width: var(--hundred-per);
     margin: 0;
     padding: 0;
     font-family: Arial, Ubuntu, sans-serif;
@@ -28,7 +29,7 @@ a {
 .top-nav {
     background: var(--light-bg);
     position: fixed;
-    width: 100%;
+    width: var(--hundred-per);
     z-index: 1000;
 }
 .nav {
@@ -40,7 +41,6 @@ a {
     display: inline-block;
     padding: 1.5em;
 }
-
 .nav-link {
     color: var(--main-link-color);
     font-weight: bold;
@@ -73,7 +73,7 @@ a {
     padding: 10px;
 }
 .img-circle {
-    border-radius: 100%;
+    border-radius: var(--hundred-per);
     border: 4px solid var(--light-bg);
 }
 .text-right {
@@ -90,10 +90,10 @@ a {
     margin: 0 0.5em;
 }
 .profile-details, .who-to-follow {
-    width: calc(25% - 0.5em);
+    width: calc(25% - 1em);
 }
 .timeline {
-    width: calc(50% - 0.5em);
+    width: calc(50% - 1em);
 }
 .media {
     width: 100%;
@@ -101,15 +101,16 @@ a {
     border-bottom: 1px solid var(--separator-color);
     padding: 0.5em;
     overflow: hidden;
+
 }
 .media-image {
     max-width: 50px;
     margin-top: 1.33em;
     float: left;
 }
-.madia-body {
-    width: calc(100% - 50px);
-    float: left;
+.media-body {
+    width: calc(var(--hundred-per) - 50px);
+    float: right;
 }
 .profile-items {
     padding: 0;

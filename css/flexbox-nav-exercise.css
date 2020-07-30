@@ -1,0 +1,152 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background: #4F4F4F;
+    margin: 0;
+    font-family: "Montserrat", "Work Sans", sans-serif;
+}
+nav {
+    background: #C1C1C1;
+    font-family: "Montserrat", "Work Sans", sans-serif;
+    margin: 0;
+    padding: 18px;
+}
+li {
+    list-style: none;
+}
+nav ul {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+nav li {
+    padding: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+nav a:link {
+    color: #4F4F4F;
+    text-decoration: none;
+}
+nav a:visited {
+    color: #4F4F4F;
+}
+nav a:hover {
+    color: blue;
+}
+a:link {
+    color: #4F4F4F;
+    text-decoration: none;
+}
+a:visited {
+    color: #FFF;
+}
+a:hover {
+    color: blue;
+}
+nav a {
+    text-decoration: none;
+    color: #4F4F4F;
+    padding: .5em;
+}
+nav ul li:nth-of-type(4) {
+    margin-right: auto;
+}
+nav ul li:nth-of-type(5) {
+    position: absolute;
+    right: 50%;
+    top: -1%;
+    width: 100px;
+    font-size: 3em;
+    padding: 0.2em;
+}
+main {
+    height: 300px;
+}
+footer {
+    margin: 80px 80px 160px 80px;
+    color: #FFF;
+}
+footer li {
+    margin-bottom: .4em;
+}
+.footer-box-1 {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-box-1 ul {
+    padding: 0;
+}
+.footer-box-1 div:nth-of-type(5) li {
+    display: inline-block;
+    padding: 0 .6em;
+}
+hr {
+    margin: 1.8em 0;
+}
+.footer-box-2 {
+    display: flex;
+    justify-content: space-between;
+}
+.footer-box-2 div {
+    justify-content: space-between;
+}
+.footer-box-2 div:nth-of-type(2) {
+    margin-left: auto;
+    margin-right: 4em;
+}
+.footer-box-2 div:first-child p:first-child {
+    font-size: 2em;
+    margin-top: 22px;
+    margin-bottom: 0;
+}
+.footer-box-2 div:first-child p:nth-of-type(2) {
+    margin: 0;
+    padding: 13px 3px;
+}
+.footer-box-2 div:nth-of-type(n + 2) {
+    margin-top: 22px;
+}
+.footer-box-2 div:nth-of-type(2) p:first-child {
+    margin-top: 0;
+}
+.footer-box-2 div:nth-of-type(3) {
+    width: 20em;
+}
+.footer-box-2 label {
+    padding-bottom: 10px;
+}
+input {
+    width: 99%;
+    height: 4em;
+    margin-top: 16px;
+    border-radius: 25px;
+    border: none;
+    padding-left: 1.7em;
+}
+button {
+    background: blue;
+    color: #FFF;
+    margin-top: 10px;
+    border: none;
+    border-radius: 25px;
+    height: 4em;
+    padding: 0 2em;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

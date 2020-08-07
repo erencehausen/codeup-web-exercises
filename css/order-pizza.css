@@ -1,0 +1,30 @@
+@media screen and (max-width: 576px) {
+    .navbar ul {
+        text-align: center;
+        margin: 5px;
+    }
+    .form-inline {
+        margin-left: 0 !important;
+    }
+    .form-inline button {
+        width: 100%;
+        margin: auto;
+    }
+}
+* {
+    box-sizing: border-box;
+}
+main {
+    margin: 0 5em;
+}
+.jumbotron {
+    background-image: url("https://java.codeup.com/examples/bootstrap/pizza.png");
+    text-align: center;
+}
+.jumbotron h1 {
+    background-color: rgba(255, 255, 255, .75);
+}
+.container {
+    margin: 0 auto;
+    padding: 0;
+}

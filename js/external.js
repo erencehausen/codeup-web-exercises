@@ -20,6 +20,12 @@ var facebook = prompt("How many hours did you work for Facebook this week?");
 var totalIncome = (google * GOOGLE_RATE) + (amazon * AMAZON_RATE) + (facebook * FACEBOOK_RATE);
 alert(`Your income for this week is $${totalIncome}`);
 
+var classCapacity = 30;
+var registerStudent = 20;
+var classConflicts = true;
+var canEnroll = (classCapacity > registerStudent) && !classConflicts;
+alert("Student able to register for class")
+
 const PREMIUM_USER = true;
 var user;
 // user = PREMIUM_USER;

@@ -1,10 +1,19 @@
 "use strict";
+var username;
+var password;
 
-var username = ' codeup';
-var password = 'notastrongpassword';
+function userCreds() {
+    username = prompt('Please enter your username: ');
+    password = prompt('Please enter your password: ');
+}
 
-if (password.length >= 5) {console.log("1")};
-if (username !== '') {console.log("2")};
-if (username.length < 20) {console.log("3")};
-// FIX: code below detects space at end of string but not beginning.
-if (username.indexOf(' ') <= 0) {console.log("4")};
+function testCheck(user, pass) {
+    if (pass.length >= 5) return console.log("1");
+    if (user !== '') return console.log("2");
+    if (user.length < 20) return console.log("3");
+    // FIX: code below detects space at end of string but not beginning.
+    if (user.indexOf(' ') <= 0) return console.log("4");
+}
+
+userCreds();
+testCheck(username, password);

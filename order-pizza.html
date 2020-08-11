@@ -46,7 +46,7 @@
 <!--  End header  -->
     <main>
     <div class="jumbotron jumbotron-fluid d-none d-sm-block">
-        <div class="container">
+        <div class="container-fluid p-0">
             <h1 class="display-2">Welcome to Pizza World!</h1>
         </div>
     </div>
@@ -74,12 +74,9 @@
                     Toppings
                 </a>
             </li>
-
         </ul>
-    </div>
-    </nav>
-<!--  End Navtabs  -->
-    <div class="tab-content" id="nav-tabContent">
+        <!-- End navtabs -->
+        <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-size-crust" role="tabpanel" aria-labelledby="nav-size-crust-tab">
             <div class="card-header text-white bg-primary">
                 Choose size and crust
@@ -110,6 +107,7 @@
                     </li>
                 </ul>
             </div>
+            <!-- End of Hand Tossed Card -->
             <div class="card m-4">
                 <div class="card-header">
                     Crispy Thin
@@ -136,19 +134,78 @@
                     </li>
                 </ul>
             </div>
-            <div class="card-footer d-flex">
-                <a href="#" class="btn btn-primary ml-auto">Next Step <i class="fas fa-angle-right"></i></a>
+            <div class="card-footer d-flex tab-control">
+                <a class="btn btn-primary ml-auto" >
+                    Next Step 
+                    <i class="fas fa-angle-right"></i>
+                </a>
             </div>
         </div>
         <!--  End first tab  -->
 
         <div class="tab-pane fade" id="nav-cheese-sauce" role="tabpanel" aria-labelledby="nav-cheese-sauce-tab">
-
-
+            <div class="card-header text-white bg-primary">
+                Choose cheese and sauce
+            </div>
+            <div class="card m-4">
+                <div class="card-header">
+                    Cheese
+                </div>
+                <ul class="list-group list-group-list">
+                    <li class="list-group-item">
+                        <p>How Much?</p>
+                        <div class="input-group mb-3">
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option value="light">Light</option>
+                              <option selected>Regular</option>
+                              <option value="heavy">A LOT!</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- End of Cheese card-->
+            <div class="card m-4">
+                <div class="card-header">
+                    Sauce
+                </div>
+                <ul class="list-group list-group-list">
+                    <li class="list-group-item">
+                        <p>What type?</p>
+                        <div class="input-group mb-3">
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option value="light">Tomato Sauce</option>
+                                <option selected>Alfredo</option>
+                                <option value="heavy">BBQ</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <p>How Much?</p>
+                        <div class="input-group mb-3">
+                            <select class="custom-select" id="inputGroupSelect01">
+                              <option value="light">Light</option>
+                              <option selected>Regular</option>
+                              <option value="heavy">A LOT!</option>
+                            </select>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- End of Sauce card -->
             <div class="card-footer d-flex">
-                <a href="#" class="btn btn-primary ml-auto">Next Step <i class="fas fa-angle-right"></i></a>
+                <a href="#nav-size-crust" class="btn btn-primary ml-auto">
+                    <i class="fas fa-angle-left"></i>
+                    Previous Step
+                </a>
+                <a href="#nav-toppings" class="btn btn-primary ">
+                    Next Step
+                    <i class="fas fa-angle-right"></i>
+                </a>
             </div>
         </div>
+        <!-- End second tab -->
+        
 
         <div class="tab-pane fade" id="nav-toppings" role="tabpanel" aria-labelledby="nav-toppings-tab">
             <div class="card-header text-white bg-primary">
@@ -185,6 +242,7 @@
                     </li>
                 </ul>
             </div>
+            <!-- End of Meat card -->
             <div class="card m-4">
                 <div class="card-header">
                     Choose Non-Meats
@@ -215,16 +273,18 @@
                         </div>
                     </li>
                 </ul>
-            </div>
-            <div class="card-footer d-flex">
-                <a href="#" class="btn btn-primary ml-auto">Next Step <i class="fas fa-angle-right"></i></a>
-            </div>
-
+                <div class="card-footer d-flex">
+                    <a href="#nav-cheese-sauce" class="btn btn-primary ml-auto">
+                        Checkout
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                </div>
+            </div>          
+            <!-- End Last tab -->
         </div>
-    </div>
-<!--  End of Tab Content  -->
-
-
+        </div>
+    </nav>
+<!--  End Navtabs  -->
     </main>
 
 

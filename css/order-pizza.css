@@ -17,6 +17,12 @@
 main {
     margin: 0 5em;
 }
+h1, h2, h3, h4, h5, h6 {
+    font-family: ;
+}
+p {
+    font-family: ;
+}
 .jumbotron {
     background-image: url("https://java.codeup.com/examples/bootstrap/pizza.png");
     text-align: center;

@@ -25,29 +25,33 @@ describe("returnMultiplicationTable", function() {
 
 
 // Random Number Even/Odd Messages Tests
-describe("returnEvenOddMessage", function() {
+describe('returnEvenOddMessage', function() {
     it("should be defined", function() {
         // TODO: add an assertion to verify that the function is defined
-
+        expect(typeof returnEvenOddMessage).toBe('function');
     });
     it("should return a string when passed an integer", function() {
         // TODO: add an assertion verifying that the function returns a string when passed an integer
-
+        expect(returnEvenOddMessage(4)).toBe("string");
     });
     it("should return the correct message when passed an integer", function() {
         // TODO: add several assertions that verify the correct string output for a given integer input
-
+        expect(returnExampleMsg(2)).toBe("2 is even");
+        expect(returnExampleMsg(5)).toBe("5 is odd");
+        expect(returnExampleMsg(7)).toBe("7 is odd");
     });
 });
 
 describe("returnTenEvenOddMessages", function() {
 
     // TODO: add a test to verify that the function is defined
-
+    it("should be defined", function () {
+        expect(typeof returnTenEvenOddMessages).toBe('function');
+    })
     it("should return an output that ends with the word 'odd' or 'even'", function() {
         var output = returnTenEvenOddMessages();
         // TODO: add an assertion to verify that the function output ends with either "even" or "odd"
-
+        expect(returnTenEvenOddMessages()).toBe('even' || 'odd');
     });
     it("should return an output with 10 lines", function() {
         expect(returnTenEvenOddMessages().split("\n").length).toEqual(10);
@@ -69,7 +73,7 @@ describe("returnTenEvenOddMessages", function() {
         }
 
         // TODO: assert that the outputContainsExpectedNumbers function returns true
-
+        expect(outputContainsExpectedNumbers()).toBe(true);
     });
 });
 
@@ -77,19 +81,25 @@ describe("returnTenEvenOddMessages", function() {
 // Number Sail Tests
 describe("returnNumberSail", function() {
     // TODO: include a test to verify that the function is defined
-
+    it('returnNumberSail should be a defined function', function () {
+        expect(typeof returnNumberSail).toBe('function');
+    });
     // TODO: include a test to verify that the function output is a string
-
+    it('returnNumberSail should return a string', function () {
+        expect(returnNumberSail()).toBe(typeof 'string');
+    });
     // TODO: include a test to verify that the function output matches the following value
-    var expectedValue = "1\n" +
-        "22\n" +
-        "333\n" +
-        "4444\n" +
-        "55555\n" +
-        "666666\n" +
-        "7777777\n" +
-        "88888888\n" +
-        "999999999";
+    it('should return the correct string output when passed one integer', function () {
+        expect(returnNumberSail()).toBe("1\n" +
+            "22\n" +
+            "333\n" +
+            "4444\n" +
+            "55555\n" +
+            "666666\n" +
+            "7777777\n" +
+            "88888888\n" +
+            "999999999");
+    });
 });
 
 

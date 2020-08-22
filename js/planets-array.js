@@ -1,7 +1,5 @@
-(function() {
-    "use strict";
-
-    var planets = [
+(function () {
+    let planets = [
         'Mercury',
         'Venus',
         'Earth',
@@ -12,8 +10,8 @@
         'Neptune'
     ];
 
-    //TODO: Read each console log below, and write some javascript code to
-    // perform the step that it describes
+//     //TODO: Read each console log below, and write some javascript code to
+//     // perform the step that it describes
     console.log('Adding "The Sun" to the beginning of the planets array.');
     planets.unshift("The Sun");
     console.log(planets);
@@ -42,5 +40,4 @@
     console.log("Sorting the planets array.");
     planets.sort();
     console.log(planets);
-
 })();

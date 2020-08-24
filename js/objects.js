@@ -128,22 +128,54 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-    function createBook(title, author) {
-        let confirmMsg = confirm("Would you like to add a book?");
-        let bookTitle = title;
-        let bookAuthor = author;
-        if (confirmMsg === true) {
-            let getTitle = prompt("What is the book title?");
-            while (getTitle instanceof !String) {
-                let titleError = prompt("That is an ")
-            }
-            let getAuthor = prompt(`Who wrote ${getTitle}?`);
-            if (getAuthor instanceof !String) return false;
 
+    function createBook(title, firstName, lastName) {
+        var book = {};
+        book.title = title;
+        book.author = {
+            firstName: firstName,
+            lastName: lastName
         }
-
     }
-    function showBookInfo() {
-
+    books.push(createBook("Start With Why", "Simon", "Sinek"));
+    var showBookInfo = function(book, bookNum) {
+        console.log(`Book # ${bookNum}\n` +
+                    `Title: ${books.title}\n` +
+                    `Author: ${books.author.firstName} ${books.author.lastName}\n` +
+                    "---");
     }
+    books.forEach(function(book, i){
+        showBookInfo(book, i+1);
+    })
+    // function userPrompts() {
+    //     let confirmMsg = confirm("Would you like to add a book?");
+    //     let getTitle;
+    //     let getAuthor;
+    //     if (confirmMsg === true) {
+    //         var getTitle = function() {
+    //             getTitle = prompt("What is the book" +
+    //             " title?");
+    //         }
+    //         var bookAuthorPrompt = function() {
+    //             getAuthor = prompt("What is the book" +
+    //                 " title?");
+    //         }
+    //         bookTitlePrompt()
+    //         bookAuthorPrompt()
+    //         if (typeof getTitle === 'number') getTitle = getTitle.toString();
+    //         if (typeof getTitle !== 'string') {
+    //             while (typeof getTitle !== 'string') {
+    //                 let titleError = prompt("That is an invalid answer. Please" +
+    //                     " try again.")
+    //                 getTitle = prompt("What is the book" +
+    //                     " title?");
+    //             }
+    //         }
+    //         bookAuthorPrompt();
+    //
+    //         let getAuthor = prompt(`Who wrote ${getTitle}?`);
+    //         if (getAuthor instanceof !String) return false;
+    //
+    //     }
+    // }
 })();

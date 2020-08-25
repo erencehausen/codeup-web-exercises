@@ -10,11 +10,11 @@
         },
 
         logInfo: function (doRounding) {
-            if (doRounding === true) {
+            if (doRounding) {
                 return console.log("Area of a circle with radius: " + this.radius + ", is: " + Math.round(this.getArea()));
-            } else {
-                return console.log("Area of a circle with radius: " + this.radius + ", is: " + this.getArea());
             }
+            return console.log("Area of a circle with radius: " + this.radius + ", is: " + this.getArea());
+
         }
     };
 

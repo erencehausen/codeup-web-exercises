@@ -20,6 +20,7 @@
             text-shadow: -1px -1px 0 #2E2E2E, 1px -1px 0 #2E2E2E, -1px 1px 0 #2E2E2E, 1px 1px 0 #2E2E2E;
             margin: auto 1em;
             padding: 1em;
+            outline: none;
         }
         #redBtn {
             background-color: rgb(255, 0, 0);
@@ -42,9 +43,9 @@
     "use strict";
     (function() {
         let colorTrigger;
-        let red = 256;
-        let green = 256;
-        let blue = 256;
+        let red = 255;
+        let green = 255;
+        let blue = 255;
 
         const redBtn = document.getElementById('redBtn');
         const redBtnListener = function () {
@@ -79,7 +80,6 @@
                         case 'red':
                             if (green > 0) {
                                 green--;
-                                console.log(`Green: ${green}`)
                             } else { green = 0;}
                             if (blue > 0) {
                                 blue--;
@@ -89,7 +89,6 @@
                             break
 
                         case 'green':
-                            console.log(`Green: ${green}`)
                             if (red > 0) {
                                 red--;
                             }  else { red = 0;}

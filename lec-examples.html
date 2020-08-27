@@ -5,121 +5,16 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        #container {
-            display: flex;
-            justify-content: center;
-            margin: 200px 50px;
-        }
-        button {
-            border: none;
-            border-radius: 1em;
-            color: white;
-            font-size: 2em;
-            text-shadow: -1px -1px 0 #2E2E2E, 1px -1px 0 #2E2E2E, -1px 1px 0 #2E2E2E, 1px 1px 0 #2E2E2E;
-            margin: auto 1em;
-            padding: 1em;
-        }
-        #redBtn {
-            background-color: rgb(255, 0, 0);
-        }
-        #greenBtn {
-            background-color: rgb(0, 255, 0);
-        }
-        #blueBtn {
-            background-color: rgb(0, 0, 255);
-        }
-    </style>
+    <title>Intro to MapBox</title>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="js/maps.js"></script>
+
 </head>
 <body>
-<div id="container">
-    <button id="redBtn" type="button">Background To Red</button>
-    <button id="greenBtn" type="button">Background To Green</button>
-    <button id="blueBtn" type="button">Background To Blue</button>
-</div>
-<script>
-    "use strict";
-    (function() {
-        let colorTrigger;
-        let red = 256;
-        let green = 256;
-        let blue = 256;
+<h1>Maps</h1>
 
-        const redBtn = document.getElementById('redBtn');
-        const redBtnListener = function () {
-            colorTrigger = 'red';
-            colorChanger();
-        };
-
-        const greenBtn = document.getElementById('greenBtn');
-        const greenBtnListener = function () {
-            colorTrigger = 'green';
-            colorChanger();
-        };
-
-        const blueBtn = document.getElementById('blueBtn');
-        const blueBtnListener = function () {
-            colorTrigger = 'blue';
-            colorChanger();
-        };
-
-
-        const colorChanger = function() {
-            const interval = 3;
-            let count = 255;
-            let max = 0;
-            const btnColorChanger = setInterval(function() {
-                if(count <= max){
-                    clearInterval(btnColorChanger);
-                } else {
-                    count--;
-                    switch (colorTrigger){
-
-                        case 'red':
-                            if (green > 0) {
-                                green--;
-                                console.log(`Green: ${green}`)
-                            } else { green = 0;}
-                            if (blue > 0) {
-                                blue--;
-                            } else { blue = 0;}
-                            if(red <= 255) red++;
-                            document.body.style.backgroundColor = `rgb(${red},${green},${blue})`;
-                            break
-
-                        case 'green':
-                            console.log(`Green: ${green}`)
-                            if (red > 0) {
-                                red--;
-                            }  else { red = 0;}
-                            if (blue > 0) {
-                                blue--;
-                            } else { blue = 0;}
-                            if(green <= 255) green++;
-                            document.body.style.backgroundColor = `rgb(${red},${green},${blue})`;
-                            break;
-
-                        case 'blue':
-                            if (red > 0) {
-                                red--;
-                            }  else { red = 0;}
-                            if (green > 0) {
-                                green--;
-                            } else { green = 0;}
-                            if(blue <= 255) blue++;
-                            document.body.style.backgroundColor = `rgb(${red},${green},${blue})`;
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            }, interval);
-        }
-        redBtn.addEventListener('click', redBtnListener);
-        greenBtn.addEventListener('click', greenBtnListener);
-        blueBtn.addEventListener('click', blueBtnListener);
-    })();
-</script>
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script src="js/keys.js"></script>
 </body>
 </html>

@@ -14,24 +14,33 @@
 <section id="output"></section>
 <div class="important">
     <h3>NOTICE</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem dicta magni perspiciatis quaerat quibusdam, repellendus rerum soluta tenetur ullam velit veniam veritatis vitae. Autem dicta dolore odio temporibus voluptates.</p>
+    <p>This is an important message!</p>
 </div>
 <div class="not-important">
     <h2>lorem ipsum</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem dicta magni perspiciatis quaerat quibusdam, repellendus rerum soluta tenetur ullam velit veniam veritatis vitae. Autem dicta dolore odio temporibus voluptates.</p>
 </div>
+<p id="p1" class="important">This is also very important.</p>
 
+// Start Scripts
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     (function (){
         'use strict'
         $().ready(function(){
-            $('codeup').html('<h2>Hello World</h2>');
-            alert('jQuery rocks');
-            $('output').html('<h2>Hello World</h2>');
-            alert('The DOM has finished loading!');
-            $('.important').css('background-color', '#ff0')
-            $('.not-important').css('background-color', 'green')
+            // $('codeup').html('<h2>Hello World</h2>');
+            // alert('jQuery rocks');
+            // $('output').html('<h2>Hello World</h2>');
+            // alert('The DOM has finished loading!');
+            // $('.important').css('background-color', '#ff0');
+            // $('.not-important').css('background-color', 'green');
+            // $('p').css('font-size', '20px');
+            // $('h3').css('color', '#f00');
+            // $('.important, p').css('background-color', '#FF0');
+            // $('.important > p').css('background-color', '#FF0');
+            $('h1, h3').css('background-color', '#00f');
+            $('*').css('border', '1px dashed #f00');
+            $('#p1').text('<strong>h1</strong>');
         });
     })();
 </script>

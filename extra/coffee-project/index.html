@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>IO Java</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+</head>
+
+
+<body class="container-flex">
+<header class="main-header d-flex row justify-content-md-center mb-0 col-12">
+    <img class="logo mx-auto" src="img/logo.png" alt="">
+    <h1 class="text-center col-12">IO Java!</h1>
+</header>
+
+<div id="bigBox" class="row m-auto">
+<!--        Selected Roasts-->
+    <section id="theCup" class="d-flex col align-self-center justify-content-center col-lg-6">
+        <div id="coffees" class="row align-content-start"></div>
+    </section>
+
+    <section class="col-lg-6 p-0">
+        <article class="coffee-search card p-3 m-5">
+            <h4 class="text-center">Search our Coffees</h4>
+            <label for="roast-selection">Roast</label>
+            <select id="roast-selection"
+                    class="custom-select custom-select-sm">
+                <option>All</option>
+                <option>light</option>
+                <option>medium</option>
+                <option>dark</option>
+            </select>
+            <label class="mt-3" for="roast-selection">Coffee Name</label>
+            <div class="input-group mb-3">
+                <input id="usersChoice" type="search" class="form-control">
+            </div>
+            <h4 class="text-center">Add a Coffee</h4>
+            <label for="newCoffeeRoastLevel">Roast</label>
+            <select id="newCoffeeRoastLevel"
+                    class="custom-select custom-select-sm">
+                <option>light</option>
+                <option>medium</option>
+                <option>dark</option>
+            </select>
+            <label class="mt-3" for="newCoffeeName">Coffee Name</label>
+            <div class="input-group mb-3">
+                <input id="newCoffeeName" type="text" class="form-control">
+            </div>
+            <button class="btn btn-primary align-self-center col-sm-4 " id="newCoffeeRequest" type="submit"><i class="fas fa-mug-hot"></i><br>Add</button>
+        </article>
+    </section>
+</div>
+
+<footer>
+
+</footer>
+
+
+    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

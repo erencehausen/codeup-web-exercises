@@ -28,15 +28,35 @@
     (function(){
         "use strict";
         $().ready(function(){
-            alert("DOM has finished loading!");
-            let headerContents = $('#main-header').html();
-            alert(headerContents);
-            headerContents = $('#my-list').html();
-            alert(headerContents);
-            $('#codeup').css('border', '1px solid #0f0');
-            $('li').css('font-size', '20px');
-            $('h1, p, li').css('background-color', '#ff0');
-            alert(headerContents);
+            // alert("DOM has finished loading!");
+            // let headerContents = $('#main-header').html();
+            // alert(headerContents);
+            // headerContents = $('#my-list').html();
+            // alert(headerContents);
+            // $('#codeup').css('border', '1px solid #0f0');
+            // $('li').css('font-size', '20px');
+            // $('h1, p, li').css('background-color', '#ff0');
+            // alert($('h1').html());
+            let originalColor;
+            $('h1').click(
+                function () {
+                    $(this).css('background-color', 'green');
+                }
+            );
+
+            $('p').dblclick(function () {
+                $(this).css('font-size', '18px');
+            });
+
+            $('li').hover(
+                function () {
+                    originalColor = $(this).css('color');
+                    $(this).css('color', 'blue');
+                },
+                function () {
+                    $(this).css('color', originalColor);
+                }
+            );
         });
     })();
 </script>

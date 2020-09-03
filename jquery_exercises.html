@@ -28,13 +28,15 @@
     (function(){
         "use strict";
         $().ready(function(){
-           alert("DOM has finished loading!");
-           var headerContents = $('#main-header').html();
-           alert(headerContents);
-           headerContents = $('#my-list').html();
-           alert(headerContents);
-           $('.codeup').css('border', '1px solid #0f0');
-
+            alert("DOM has finished loading!");
+            let headerContents = $('#main-header').html();
+            alert(headerContents);
+            headerContents = $('#my-list').html();
+            alert(headerContents);
+            $('#codeup').css('border', '1px solid #0f0');
+            $('li').css('font-size', '20px');
+            $('h1, p, li').css('background-color', '#ff0');
+            alert(headerContents);
         });
     })();
 </script>

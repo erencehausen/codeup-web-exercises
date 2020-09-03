@@ -8,8 +8,20 @@
     <title>jQuery Exercise</title>
 </head>
 <body>
-<h1>jQuery Exercise</h1>
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, deserunt ex nisi sequi suscipit voluptatibus. Animi cupiditate dolore eaque maxime neque nobis obcaecati placeat quas repellat repellendus, similique unde ut?</p>
+<h1 id="main-header">jQuery Exercise</h1>
+<p class="codeup">
+    Lorem ipsum dolor sit amet, consectetur adipisicing
+    elit. Culpa, deserunt
+    ex nisi sequi suscipit voluptatibus. Animi cupiditate dolore eaque maxime neque nobis obcaecati placeat quas repellat repellendus, similique unde ut?
+</p>
+
+<div id="codeup">
+    <ul class="codeup">
+        <li class="list-item-1">Item 1</li>
+        <li class="list-item-2">Item 2</li>
+        <li id="important-item" class="list-item-3">Item 3</li>
+    </ul>
+</div>
 
 <script src="js/jquery-2.2.4.js"></script>
 <script>
@@ -17,6 +29,12 @@
         "use strict";
         $().ready(function(){
            alert("DOM has finished loading!");
+           var headerContents = $('#main-header').html();
+           alert(headerContents);
+           headerContents = $('#my-list').html();
+           alert(headerContents);
+           $('.codeup').css('border', '1px solid #0f0');
+
         });
     })();
 </script>

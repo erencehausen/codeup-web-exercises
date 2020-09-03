@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learning jQuery</title>
+</head>
+<body>
+<h1 id="codeup">Learning jQuery</h1>
+<input id="input" type="text">
+<button id="btn">Click</button>
+<section id="output"></section>
+<div class="important">
+    <h3>NOTICE</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem dicta magni perspiciatis quaerat quibusdam, repellendus rerum soluta tenetur ullam velit veniam veritatis vitae. Autem dicta dolore odio temporibus voluptates.</p>
+</div>
+<div class="not-important">
+    <h2>lorem ipsum</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem dicta magni perspiciatis quaerat quibusdam, repellendus rerum soluta tenetur ullam velit veniam veritatis vitae. Autem dicta dolore odio temporibus voluptates.</p>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+    (function (){
+        'use strict'
+        $().ready(function(){
+            $('codeup').html('<h2>Hello World</h2>');
+            alert('jQuery rocks');
+            $('output').html('<h2>Hello World</h2>');
+            alert('The DOM has finished loading!');
+            $('.important').css('background-color', '#ff0')
+            $('.not-important').css('background-color', 'green')
+        });
+    })();
+</script>
+</body>
+</html>

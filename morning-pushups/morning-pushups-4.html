@@ -15,27 +15,55 @@
 <div class="card mt-5">
     <h4 class="text-center m-3">Enter a Number</h4>
     <div class="input-group mb-3">
-        <input id="usersNum" type="search" class="form-control mx-5">
+        <input id="users-num" type="search" class="form-control mx-5">
     </div>
-    <button class="align-self-center m-3" id="newCoffeeRequest" type="submit">Enter</button>
+    <button class="user-number-input align-self-center m-3" id="user-number-input" type="submit">Enter</button>
 </div>
-<h1 id="result"></h1>
+<h1 id="result" class="text-center mt-5"></h1>
 
 <!-- Start Scripts-->
 <script src="../js/jquery-2.2.4.js"></script>
 <script>
     (function() {
         'use strict';
+        // $().ready(function() {
+        //     const usersNum = function(num) {
+        //         let showResult = $('#result').html(num + '<br>');
+        //         for(let i = 0; i <= num; i++) {
+        //             showResult += showResult;
+        //             console.log(num);
+        //             num = num/2;
+        //         }
+        //     }
+        //     usersNum(8);
+        // })
         $().ready(function() {
-            function usersNum(num) {
-                let showResult = $('#result').html(num + '<br>');
-                for(let i = 0; i <= num; i++) {
-                    showResult += showResult;
-                    console.log(num);
-                    num = num/2;
+            function showFactors(num) {
+                if (isNaN(num)) {
+                    $('#result').html('The argument, ' + num + ', is not a number.');
+                } else if (typeof num !== 'number') {
+                    $('#result').html('The type of ' + num + 'is ' + typeof num + '. It should be a number.');
+                } else if (!Number.isInteger(num)) {
+                    $('#result').html('The argument, ' + num + ', is not an integer.');
+                } else {
+                    $('#result').html(slowFactor(num));
                 }
             }
-            usersNum(8);
+
+            function slowFactor(num) {
+                var output = 'List of factors of ' + num + ': <br>';
+                if (num < 0) num *= -1;
+                for (var i = 1; i <= num; i++) {
+                    if (num % i === 0) output += ' ' + i;
+                }
+                return output;
+            }
+
+            $('#user-number-input').click(function() {
+                let userNum = parseInt($('#users-num').val());
+                showFactors(userNum);
+            });
+
         })
     })();
 </script>

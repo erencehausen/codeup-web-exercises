@@ -23,13 +23,13 @@
             outline: none;
         }
         #redBtn {
-            background-color: rgb(255, 0, 0);
+            background-color: rgb(200, 100, 100);
         }
         #greenBtn {
-            background-color: rgb(0, 255, 0);
+            background-color: rgb(100, 200, 100);
         }
         #blueBtn {
-            background-color: rgb(0, 0, 255);
+            background-color: rgb(100, 100, 200);
         }
     </style>
 </head>
@@ -40,12 +40,13 @@
     <button id="blueBtn" type="button">Background To Blue</button>
 </div>
 <script>
-    "use strict";
     (function() {
+        "use strict";
+        alert("!!WARNING!! THIS SITE CONTAINS BRIGHT COLORS!!")
         let colorTrigger;
-        let red = 255;
-        let green = 255;
-        let blue = 255;
+        let red = 200;
+        let green = 200;
+        let blue = 200;
 
         const redBtn = document.getElementById('redBtn');
         const redBtnListener = function () {
@@ -67,8 +68,8 @@
 
 
         const colorChanger = function() {
-            const interval = 3;
-            let count = 255;
+            const interval = 10;
+            let count = 200;
             let max = 0;
             const btnColorChanger = setInterval(function() {
                 if(count <= max){
@@ -78,35 +79,35 @@
                     switch (colorTrigger){
 
                         case 'red':
-                            if (green > 0) {
+                            if (green > 100) {
                                 green--;
-                            } else { green = 0;}
-                            if (blue > 0) {
+                            } else { green = 100;}
+                            if (blue > 100) {
                                 blue--;
-                            } else { blue = 0;}
-                            if(red <= 255) red++;
+                            } else { blue = 100;}
+                            if(red <= 200) red++;
                             document.body.style.backgroundColor = `rgb(${red},${green},${blue})`;
                             break
 
                         case 'green':
-                            if (red > 0) {
+                            if (red > 100) {
                                 red--;
-                            }  else { red = 0;}
-                            if (blue > 0) {
+                            }  else { red = 100;}
+                            if (blue > 100) {
                                 blue--;
-                            } else { blue = 0;}
-                            if(green <= 255) green++;
+                            } else { blue = 100;}
+                            if(green <= 200) green++;
                             document.body.style.backgroundColor = `rgb(${red},${green},${blue})`;
                             break;
 
                         case 'blue':
-                            if (red > 0) {
+                            if (red > 100) {
                                 red--;
-                            }  else { red = 0;}
-                            if (green > 0) {
+                            }  else { red = 100;}
+                            if (green > 100) {
                                 green--;
-                            } else { green = 0;}
-                            if(blue <= 255) blue++;
+                            } else { green = 100;}
+                            if(blue <= 200) blue++;
                             document.body.style.backgroundColor = `rgb(${red},${green},${blue})`;
                             break;
                         default:

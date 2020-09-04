@@ -23,11 +23,20 @@
     </ul>
 </div>
 
-<script src="js/jquery-2.2.4.js"></script>
+<div class="card mt-5">
+    <h4 class="text-center m-3">Enter a Number</h4>
+    <div class="input-group mb-3">
+        <input id="users-input" type="search" class="form-control mx-5">
+    </div>
+    <button class="user-input-btn align-self-center m-3" id="user-input-btn" type="submit">Enter</button>
+</div>
+
+<script src="js/jquery.js"></script>
 <script>
     (function(){
         "use strict";
         $().ready(function(){
+            // 09/02
             // alert("DOM has finished loading!");
             // let headerContents = $('#main-header').html();
             // alert(headerContents);
@@ -37,26 +46,34 @@
             // $('li').css('font-size', '20px');
             // $('h1, p, li').css('background-color', '#ff0');
             // alert($('h1').html());
-            let originalColor;
-            $('h1').click(
-                function () {
-                    $(this).css('background-color', 'green');
-                }
-            );
+            // let originalColor;
 
-            $('p').dblclick(function () {
-                $(this).css('font-size', '18px');
+            // 09/03
+            // $('h1').click(
+            //     function () {
+            //         $(this).css('background-color', 'green');
+            //     }
+            // );
+            //
+            // $('p').dblclick(function () {
+            //     $(this).css('font-size', '18px');
+            // });
+            //
+            // $('li').hover(
+            //     function () {
+            //         originalColor = $(this).css('color');
+            //         $(this).css('color', 'blue');
+            //     },
+            //     function () {
+            //         $(this).css('color', originalColor);
+            //     }
+            // );
+
+            // 09/04
+            $('#users-input').keyup(function() {
+                alert("A key was pushed down!");
             });
 
-            $('li').hover(
-                function () {
-                    originalColor = $(this).css('color');
-                    $(this).css('color', 'blue');
-                },
-                function () {
-                    $(this).css('color', originalColor);
-                }
-            );
         });
     })();
 </script>

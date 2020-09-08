@@ -15,37 +15,24 @@
         // Right = 39
         // B = 66
         // A = 65
-        const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+
         let userCode = [];
         let count = 0;
         let cheatCodeInitiated = false;
         $(document).keyup(function(event){
             let keyPressed = event.keyCode;
-            let restart = function() {
-                console.log("Restart!")
-                cheatCodeInitiated = false;
-                count = 0;
-            }
+            const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
             console.log(keyPressed);
-            if(!cheatCodeInitiated) {
-                if(userCode.length < 10) {
-                    console.log("Cheat Code Initiated!");
-                    cheatCodeInitiated = true;
-                }
-            }
-            if(cheatCodeInitiated) {
-                if(konamiCode[count] === keyPressed) {
-                    count++;
-                } else {
-                    restart();
-                }
-                if(count == 10) {
-                    alert("code entered");
-                    restart();
-                } else {
-                    console.log('')
-                    restart();
-                }
+
+            userCode.push(event.keyCode);
+            console.log(userCode);
+
+            if(userCode.toString().indexOf(konamiCode) >= 0) {
+                alert("You entered the Konami code")
+                // Do something cool
+
+
+                userCode = [];
             }
         });
 

@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Fun</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <style type="text/css">
+        .jumbotron {text-align: center;}
+        .red {background-color: red;}
+        .purple {background-color: mediumpurple;}
+        .hidden {display:none;}
+
+    </style>
+
+</head>
+<body>
+<main class="container">
+    <section class="jumbotron">
+        <h1>Fun with jQuery!</h1>
+        <button id="btn1" type="button" class="btn btn-default">#btn1</button>
+        <button id="btn2" type="button" class="btn btn-default">#btn2</button>
+        <button id="btn3" type="button" class="btn btn-default">#btn3</button>
+        <button id="btn4" type="button" class="btn btn-default">#btn4</button>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel1" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel1
+            </div>
+            <div class="panel-body"> Content
+            </div>
+
+        </article>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel2" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel2
+            </div>
+            <div class="panel-body"> Content
+            </div>
+
+        </article>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel3" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel3
+            </div>
+            <div class="panel-body"> Content
+            </div>
+
+        </article>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel4" class="panel panel-primary">
+            <div class="panel-heading">
+                #panel4
+            </div>
+            <div class="panel-body"> Content
+            </div>
+
+        </article>
+    </section>
+    <section class="col-xs-3">
+        <article id="panel5" class="panel panel-primary">
+            <ul>
+                <li class="listItem1">List Item 1</li>
+                <li class="listItem2">List Item 2</li>
+                <li class="listItem3">List Item 3</li>
+            </ul>
+
+        </article>
+    </section>
+</main>
+<!-- jQuery and bootstrap -->
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script>
+
+    $(document).ready(function(){
+
+        $('#btn1').each(function() {
+            var id = $(this).attr("data-id");
+            $(this).dblclick(function() {
+                $("#panel"+id).toggleClass("hidden");
+            })
+        })
+
+        $("ul").children().addClass("cute");
+        $("li").first().addClass("underLined")
+
+        $("li").click(function() {
+            $(this).next().css({
+              fontSize:
+                  (Number.parseInt($(this).next().css("font-size")) * 1.2) + "px"
+            })
+        });
+
+        $('#btn2').each(function() {
+
+        })
+
+        $('#btn3').each(function() {
+
+        })
+
+        $('#btn4').each(function() {
+
+        })
+
+
+    });
+
+</script>
+</body>
+</html>

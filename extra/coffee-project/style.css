@@ -1,38 +1,60 @@
-body {
-    background-color: #411f1f;
-}
-.main-header {
-    background-image: url("https://c1.wallpaperflare.com/preview/977/485/94/cup-coffee-caffeine-drink.jpg");
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-.logo {
-    height: 100px;
-    width: 100px;
-}
-.coffee-search {
-    background-color: #898683;
-}
-#theCup {
-    padding: 2.5em;
-    height: 100%;
-}
-#bigBox {
-    background-image: url(img/coffeebeans.jpg);
-    background-size: cover;
-    border-top: 3px solid #c87941;
+body{
+    background-color: #2E2F37;
+    background-image: url("https://image.freepik.com/free-photo/top-view-coffee-accessories-table_23-2148336708.jpg");
+    background-size: auto;
+    background-position: center;
+    /*fill-opacity: .75;*/
 }
 
-h1 {
-    margin: 0 0 20px 0;
-    color: #dbcbbd;
+#coffees {
+    margin: 0 0 0 15px;
+    color: goldenrod;
+    z-index: 2;
 }
-img {
-    background-color: #E6ECF0;
-    border-radius: 50%;
-    margin-top: 20px;
+#roastText {
+    margin: 0 0 0 15px;
 }
+
+header {
+    height: 140px;
+    color: white;
+    font-family: 'Libre Baskerville', serif;
+    text-shadow:5px 5px 10px grey;
+    background-image: url("https://c1.wallpaperflare.com/preview/571/899/740/beans-coffee-food.jpg");
+    background-size: cover;
+    background-color: #2E2F37;
+}
+header h1 {
+    font-size: 80px;
+}
+
+
+#theCup {
+    background-image: url("https://c0.wallpaperflare.com/preview/455/119/639/brown-ceramic-teacup-with-coffee.jpg");
+}
+
+#bigBox{
+    background-image: url("https://c1.wallpaperflare.com/preview/977/485/94/cup-coffee-caffeine-drink.jpg");
+}
+
 article {
-    background-color: #aaaaaa;
+    color: goldenrod;
+    font-size: larger;
+}
+
+#roast-selection, #newCoffeeRoastLevel, #newCoffeeName, #usersChoice {
+    background-color: burlywood;
+}
+
+#newCoffeeRequest {
+    background-color: bisque;
+    color: darkgoldenrod;
+}
+
+i {
+    color: saddlebrown;
+}
+
+.card, #bigBox {
+    box-shadow: 15px 15px 27px 15px lightgrey;
 }

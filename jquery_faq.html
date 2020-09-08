@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>jQuery FAQ</title>
+    <style>
+        .hidden {
+            visibility: hidden;
+        }
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+<body>
+<h1>jQuery FAQ</h1>
+
+<p>Click here to see 10 FAQs about national parks</p>
+
+<dl>
+
+    <dt>Title:</dt>
+    <dd>Body</dd>
+
+    <dt>Title:</dt>
+    <dd>Body</dd>
+
+    <dt>Title:</dt>
+    <dd>Body</dd>
+
+    <dt>Title:</dt>
+    <dd>Body</dd>
+
+    <dt>Title:</dt>
+    <dd>Body</dd>
+
+    <dt>Title:</dt>
+    <dd>Body</dd>
+
+    <dt>Title:</dt>
+    <dd>Body</dd>
+
+    <dt>Title:</dt>
+    <dd>Body</dd>
+
+    <dt>Title:</dt>
+    <dd>Body</dd>
+
+    <dt>Title:</dt>
+    <dd>Body</dd>
+
+</dl>
+<script src="js/jquery.js"></script>
+<script>
+    // (function() {
+    "use strict";
+
+    $().ready(function() {
+        $('p').click(function() {
+            $('dd').toggleClass('hidden');
+        });
+
+        $('dt').click(function() {
+            $(this).toggleClass('highlight');
+        });
+    })
+
+
+    // })();
+</script>
+</body>
+</html>
+

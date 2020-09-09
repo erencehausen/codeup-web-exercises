@@ -109,18 +109,24 @@
 
         // Newsletter Message
         $('div').first().html('<h2>Click here <span>X</span> to sign up for our newsletter?</h2>');
-        $('div').hide().fadeIn(8000);
+        $('div').first().hide().fadeIn(8000);
         $('h2').children().click(function() {
             $(this).parent().fadeOut(1000);
         });
 
         // Swapping Pictures
-        $('.picture-1').html('<div><img src="https://placeimg.com/200/100/nature" alt=""></div>');
-        $('.picture-2').html('<div><img src="https://placeimg.com/200/100/animals" alt=""></div>');
-        $('.picture-3').html('<div><img src="https://placeimg.com/200/100/arch" alt=""></div>');
+        $('.picture-1').append('<div><img src="https://placeimg.com/200/100/nature" alt=""></div>');
+        $('.picture-2').append('<div><img src="https://placeimg.com/200/100/animals" alt=""></div>');
+        $('.picture-3').append('<div><img src="https://placeimg.com/200/100/arch" alt=""></div>');
 
         // TODO: Add Code
         $('.picture-frame, .picture-btn').addClass('d-flex justify-content-around m-2');
+
+        // Bootstrap Modal
+        // setTimeout(function() {
+        //     //data-
+        //     $('#register').modal('show'); //data-show
+        // })
 
     })
 

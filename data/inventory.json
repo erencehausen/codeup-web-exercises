@@ -1,0 +1,62 @@
+[
+    {
+        "title": "Hammer",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 20
+    }, {
+        "title": "Drill",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "powered"
+        ],
+        "price": 100
+    }, {
+        "title": "Mower",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "gas",
+            "outdoor"
+        ],
+        "price": 200
+    }, {
+        "title": "Screwdrivers",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 10
+    }, {
+        "title": "Saw",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 15
+    }, {
+        "title": "Flush Cuts",
+        "quantity": 30,
+        "categories": [
+            "tool"
+        ],
+        "price": 5
+    }, {
+        "title": "Lineman Pliers",
+        "quantity": 30,
+        "categories": [
+            "tool"
+        ],
+        "price": 30
+    }, {
+        "title": "Visual Fault Locators",
+        "quantity": 10,
+        "categories": [
+            "tool"
+        ],
+        "price": 30
+    }
+]

@@ -5,30 +5,152 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Weather Map</title>
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <!-- Custom Css   -->
     <style>
-
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #map-container {
+            background-color: #00ABA9;
+        }
+        #map {
+            width: 90%;
+            height: 300px;
+        }
     </style>
+
+
 </head>
 <body>
 
+<header id="header-container" class="jumbotron jumbotron-fluid pb-0">
+    <div class="container">
+        <h1 id="main-header" class="display-4">Weather Map</h1>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="" width="30" height="30" alt="" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Search Bar -->
+<div class="container input-group mb-3">
+    <input type="text" name="location" id="location" class="form-control" placeholder="Please enter a location">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+    </div>
+</div>
+
+<!-- Display OpenWeather Object -->
+<div id="weather-info" class="container nav nav-tabs">
+    <h1 class="name"></h1>
+    <p class="desc"></p>
+    <p class="temp"></p>
+</div>
+
+<!-- MapBox -->
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+<div id="map-container" class="d-flex justify-content-center">
+    <div id='map'></div>
+</div>
+
+<footer id="footer-container" class="d-flex justify-content-between">
+        <ul>
+            <li>LOGO</li>
+            <li>LOGO</li>
+        </ul>
+        <ul>
+            <li>Contact Us</li>
+            <li>Phone: +123.456.7890</li>
+            <li>General Email: contact@company.com</li>
+            <li>Support Email: support@company.com</li>
+        </ul>
+        <ul>
+            <li>Contact Us</li>
+            <li><input type="text" placeholder="Your Email"></li>
+            <li><button>Submit</button></li>
+        </ul>
+</footer>
 
 <!-- Bootstrap Script -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
-<!-- Jquery Scripts-->
-<script src="js/jquery.js"></script>
-
 <!-- Custom Script -->
+<script src="js/jquery.js"></script>
+<script src="js/keys.js"></script>
 <script>
+    (function() {
+        "use strict";
+        $().ready(function(){
+            const homeLocation = [-98.4916, 29.4252]; // San Antonio
 
+            // MAPBOX
+            mapboxgl.accessToken = 'pk.eyJ1IjoiZXJlbmNlaGF1c2VuIiwiYSI6ImNrZWQ4NXFvcTBjcnMycm1ucmxpbW1zMnIifQ.5G9N5cSAksdmyqrQ37Msqw';
+            var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: homeLocation,
+                zoom: 11.15,
+                pitch: 20,
+                bearing: -17.6,
+                antialias: true
+            });
+
+            const button = $('.button')
+            const inputValue = $('.input-value')
+            const name = $('.name')
+            const desc = $('.desc')
+            const temp = $('.temp')
+
+            // OPEN WEATHER MAP
+            const api_endpoint = 'https://api.openweathermap.org/data/2.5/forecast';
+            let q = 'San Antonio'
+            $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                APPID: OPEN_WEATHER_APPID,
+                lat:    29.423017,
+                lon:   -98.48527,
+                units: "imperial"
+            }).done(function(data) {
+                console.log('5 day forecast', data);
+                $('.name').html(
+                    `<p>${data.list[0].main.temp} &deg;C</p><br>\n` +
+                    `<p>Feels-like Temperature: ${data.list[0].main.feels_like}&deg;C</p><br>\n`+
+                    `<p>Minimum Temperature: ${data.list[0].main.temp_min}&deg;C</p><br>\n`+
+                    `<p>Maximum Temperature: ${data.list[0].main.temp_max}&deg;C</p><br>\n`+
+                    `<p>Pressure: ${data.list[0].main.pressure}hPa</p><br>\n`+
+                    `<p>Sea Level: ${data.list[0].main.sea_level}hPa</p><br>\n`+
+                    `<p>Ground Level: ${data.list[0].main.grnd_level}hPa</p><br>\n`+
+                    `<p>Humidity: ${data.list[0].main.humidity}%</p><br>\n`+
+                    `<p>Wind: ${data.list[0].wind.speed} ${data.list[0].wind.deg}&deg;</p><br>\n`+
+                    `<p>Visibility: ${data.list[0].main.humidity} meter/sec</p><br>\n`+
+                    `<p>Internal Parameters: ${data.list[0].main.temp_kf}</p><br>\n`
+                );
+            });
+        });
+    })();
 </script>
 
 </body>

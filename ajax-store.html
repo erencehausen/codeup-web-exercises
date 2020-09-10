@@ -4,8 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Online Store</title>
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <!-- Custom Css   -->
+    <style>
+        .background-lightblue { background-color: #dfe9ec}
+        .background-lightlightblue { background-color: #eff4f5}
+    </style>
+
 </head>
 <body id="main-container">
 
@@ -37,7 +45,6 @@
 <script>
 (function() {
     "use strict";
-    // TODO: Create an AJAX GET request for the file under data/inventory.json
     $().ready(function(){
         var mainContainer = $('#main-container');
         var mainHeader = $('#main-header');
@@ -48,9 +55,10 @@
         mainHeader.addClass('text-center m-3');
         refreshButton.addClass('my-3');
         products.addClass('table');
+        $('#table-header, #product').addClass('background-lightblue');
 
         $.get("data/inventory.json").done(function(data, status, jqXhr){
-            // alert("AJAX call completed successfully!");
+            alert("AJAX call completed successfully!");
             console.log("Request status: " + status);
             console.log("Data returned from server:");
             console.log(data);
@@ -66,11 +74,13 @@
                                     <td>${item['price']}</td>
                                     <td>${item['categories']}</td>
                                   </tr>\n`;
-                })
+                });
                 innerHTML += '<br>\n';
-                insertProducts.html(innerHTML);
+                insertProducts.html(innerHTML)
+                $('tr:odd').addClass('background-lightlightblue');
             });
         });
+    //    TODO: Add a search bar for fun
     });
 })();
 </script>

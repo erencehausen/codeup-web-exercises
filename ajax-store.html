@@ -23,11 +23,11 @@
 
 <table id="products">
     <thead id="table-header">
-        <tr>
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
+       </a> <tr>
+            <th><a id="price-filter" type="button">Title</a></th>
+            <th><a id="price-filter" type="button">Quantity</a></th>
+            <th><a id="price-filter" type="button">Price</a></th>
+            <th><a id="price-filter" type="button">Categories</a></th>
         </tr>
     </thead>
     <tbody id="insert-products"></tbody>
@@ -51,6 +51,7 @@
         var refreshButton = $('#refresh-button');
         var products = $('#products');
         var insertProducts = $('#insert-products');
+        var priceFilter = $('#price-filter');
         mainContainer.addClass('container');
         mainHeader.addClass('text-center m-3');
         refreshButton.addClass('my-3');
@@ -62,9 +63,11 @@
             console.log("Request status: " + status);
             console.log("Data returned from server:");
             console.log(data);
-        });
 
-        $.post("data/inventory.json").done(function(data) {
+            priceFilter.click(function() {
+
+            });
+
             refreshButton.click(function(){
                 let innerHTML = '<br>';
                 data.forEach(function(item) {
@@ -79,7 +82,48 @@
                 insertProducts.html(innerHTML)
                 $('tr:odd').addClass('background-lightlightblue');
             });
+
+            function indexSwap(items, leftIndex, rightIndex) {
+                var temp = items[leftIndex];
+                items[leftIndex] = items[rightIndex];
+                items[rightIndex] = temp;
+            }
+
+            function partition(items, left, right) {
+                var pivot = items[Math.floor((right + left) / 2)],
+                    leftPointer = left,
+                    rightPointer = right;
+                while(leftPointer <= rightPointer) {
+                    while(items[leftPointer] < pivot) {
+                        leftPointer++;
+                    }
+                    while(items[rightPointer] < pivot) {
+                        rightPointer++;
+                    }
+                    if(leftPointer <= rightPointer) {
+                        indexSwap(items, leftPointer, rightPointer);
+                        leftPointer++;
+                        rightPointer++;
+                    }
+                }
+                return leftPointer;
+            }
+            
+            function quickSort(items, left, right) {
+                var index;
+                if(items.length > 1) {
+                    index = partition(items, left, right);
+                    if(left < index - 1) {
+                        quickSort(items, left, index -1);
+                    }
+                    if(index < right - 1) {
+                        quickSort(items, index, right);
+                    }
+                }
+                return items;
+            }
         });
+
     //    TODO: Add a search bar for fun
     });
 })();

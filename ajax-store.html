@@ -24,10 +24,10 @@
 <table id="products">
     <thead id="table-header">
        </a> <tr>
-            <th><a id="price-filter" type="button">Title</a></th>
-            <th><a id="price-filter" type="button">Quantity</a></th>
+            <th><a id="title-filter" type="button">Title</a></th>
+            <th><a id="quantity-filter" type="button">Quantity</a></th>
             <th><a id="price-filter" type="button">Price</a></th>
-            <th><a id="price-filter" type="button">Categories</a></th>
+            <th><a id="categories-filter" type="button">Categories</a></th>
         </tr>
     </thead>
     <tbody id="insert-products"></tbody>
@@ -62,10 +62,11 @@
             alert("AJAX call completed successfully!");
             console.log("Request status: " + status);
             console.log("Data returned from server:");
-            console.log(data);
+            console.log(data.forEach());
 
             priceFilter.click(function() {
-
+                var sort = quickSort(data, 0, items.length - 1);
+                console.log(data[0].price);
             });
 
             refreshButton.click(function(){

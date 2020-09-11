@@ -17,7 +17,7 @@
             padding: 0;
         }
         #map-container {
-            background-color: #00ABA9;
+            /*background-color: #00ABA9;*/
         }
         #map {
             width: 90%;
@@ -62,11 +62,7 @@
 </div>
 
 <!-- Display OpenWeather Object -->
-<div id="weather-info" class="container nav nav-tabs">
-    <h1 class="name"></h1>
-    <p class="desc"></p>
-    <p class="temp"></p>
-</div>
+<div id="weather-info" class="container nav nav-tabs mb-4"></div>
 
 <!-- MapBox -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
@@ -119,12 +115,6 @@
                 antialias: true
             });
 
-            const button = $('.button')
-            const inputValue = $('.input-value')
-            const name = $('.name')
-            const desc = $('.desc')
-            const temp = $('.temp')
-
             // OPEN WEATHER MAP
             const api_endpoint = 'https://api.openweathermap.org/data/2.5/forecast';
             let q = 'San Antonio'
@@ -135,18 +125,29 @@
                 units: "imperial"
             }).done(function(data) {
                 console.log('5 day forecast', data);
-                $('.name').html(
-                    `<p>${data.list[0].main.temp} &deg;C</p><br>\n` +
-                    `<p>Feels-like Temperature: ${data.list[0].main.feels_like}&deg;C</p><br>\n`+
-                    `<p>Minimum Temperature: ${data.list[0].main.temp_min}&deg;C</p><br>\n`+
-                    `<p>Maximum Temperature: ${data.list[0].main.temp_max}&deg;C</p><br>\n`+
-                    `<p>Pressure: ${data.list[0].main.pressure}hPa</p><br>\n`+
-                    `<p>Sea Level: ${data.list[0].main.sea_level}hPa</p><br>\n`+
-                    `<p>Ground Level: ${data.list[0].main.grnd_level}hPa</p><br>\n`+
-                    `<p>Humidity: ${data.list[0].main.humidity}%</p><br>\n`+
-                    `<p>Wind: ${data.list[0].wind.speed} ${data.list[0].wind.deg}&deg;</p><br>\n`+
-                    `<p>Visibility: ${data.list[0].main.humidity} meter/sec</p><br>\n`+
-                    `<p>Internal Parameters: ${data.list[0].main.temp_kf}</p><br>\n`
+                $('#weather-info').html(
+                    `<div class="card p-2">`+
+                        `<div class="container text-center">`+
+                            `<h2 class="mt-3 mb-0">${data.list[0].main.temp}&deg;F</h2>`+
+                            `<p class="font-weight-bolder mb-0">${data.list[0].main.temp_max}&deg;/${data.list[0].main.temp_min}&deg;</p><br>`+
+                        `</div>`+
+                        `<div class="card-body container-flex pt-0">`+
+                            `<h5 class="col-12 text-center mb-3">Today</h5>`+
+                            `<div>`+
+                                `<p><span class="">${data.list[0].main.feels_like}&deg;F</span> <span>Feels-like</span></p>`+
+                            `</div>`+
+                            `<div>`+
+                                `<p class="d-flex justify-content-between">Pressure: <span class="mr-0">${data.list[0].main.pressure}hPa</span></p>`+
+                                `<p class="d-flex justify-content-between">Sea Level: <span class="mr-0">${data.list[0].main.sea_level}hPa</span></p>`+
+                                `<p class="d-flex justify-content-between">Ground Level: <span class="mr-0">${data.list[0].main.grnd_level}hPa</span></p>`+
+                            `</div>`+
+                            `<div>`+
+                                `<p class="d-flex justify-content-between">Humidity: <span class="text-right">${data.list[0].main.humidity}%</span></p>`+
+                                `<p class="d-flex justify-content-between">Wind: <span class="text-right">${data.list[0].wind.speed} mi/hr ${data.list[0].wind.deg}&deg; </span></p>`+
+                                `<p class="d-flex justify-content-between">Visibility: <span class="mr-0">${data.list[0].main.humidity} m</span></p>`+
+                            `</div>`+
+                        `</div>`+
+                    `</div>`
                 );
             });
         });

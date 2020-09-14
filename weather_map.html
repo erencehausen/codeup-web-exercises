@@ -13,15 +13,40 @@
     <!-- Custom Css   -->
     <style>
         body {
+            background-color: #bdcfdb;
             margin: 0;
             padding: 0;
         }
-        #map-container {
-            /*background-color: #00ABA9;*/
+        #header-container {
+            background-image: url("img/weather-logo.png");
+            background-size: cover;
+            color: white;
+        }
+        #main-header {
+            font-size: 3em;
+            margin-left: auto;
+        }
+        #header-info-list {
+            list-style: none;
+        }
+        #hours-button, #days-button {
+            background-color: #4F4F4F;
+            color: white;
+        }
+        #hours-button:hover, #days-button:hover {
+            background-color: steelblue;
+        }
+        #hours-button {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+        }
+        #days-button {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
         }
         #map {
-            width: 90%;
-            height: 300px;
+            width: 100%;
+            height: 450px;
         }
     </style>
 
@@ -29,13 +54,13 @@
 </head>
 <body>
 
-<header id="header-container" class="jumbotron jumbotron-fluid pb-0">
-    <div class="container">
-        <h1 id="main-header" class="display-4">Weather Map</h1>
+<header id="header-container" class="jumbotron jumbotron-fluid pb-0 mr-auto">
+    <div id="header-title-container" class="container mr-auto">
+        <h1 id="main-header" class="mr-auto">Weather Map.</h1>
     </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
-            <img src="" width="30" height="30" alt="" loading="lazy">
+            <h4>WM</h4>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,9 +69,6 @@
             <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
                 </li>
             </ul>
         </div>
@@ -57,38 +79,53 @@
 <div class="container input-group mb-3">
     <input type="text" name="location" id="location" class="form-control" placeholder="Please enter a location">
     <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        <button class="btn btn-outline-secondary" type="button" id="search-bar-button">Search</button>
     </div>
 </div>
 
 <!-- Display OpenWeather Object -->
-<div id="weather-info-container" class="container nav nav-tabs mb-4">
-<div id="weather-info" class="d-flex mx-2"></div>
+<div class="container my-5">
+    <div id="weather-header" class="row">
+        <div class="col m-auto">
+            <div class="d-flex justify-content-center">
+                <h1 id="header-fl-temp" class="mb-0"></h1>
+                <p id="header-min-temp" class="align-self-end mb-0"></p>
+            </div>
+            <div class="d-flex align-items-start justify-content-center">
+                <p>Feels like</p>
+            </div>
+        </div>
+        <div class="col m-auto text-center">
+            <img id="weather-icon">
+            <h2 id="display-location"></h2>
+            <p id="header-dt"></p>
+        </div>
+        <div class="col m-auto p-0">
+            <ul id="header-info-list" class="pl-3"></ul>
+        </div>
+    </div>
+
+    <div>
+        <ul class="nav nav-pills nav-fill">
+            <li class="nav-item">
+                <a id="hours-button" class="nav-link active" type="button">3 Hours</a>
+            </li>
+            <li class="nav-item nav-fill">
+                <a id="days-button" class="nav-link" type="button">5 Days</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="hours-tab" class="my-3 row justify-content-center"></div>
+    <div id="days-tab" class="my-3 row justify-content-center"></div>
 </div>
+
 <!-- MapBox -->
 <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
 <div id="map-container" class="d-flex justify-content-center">
     <div id='map'></div>
 </div>
-
-<footer id="footer-container" class="d-flex justify-content-between">
-        <ul>
-            <li>LOGO</li>
-            <li>LOGO</li>
-        </ul>
-        <ul>
-            <li>Contact Us</li>
-            <li>Phone: +123.456.7890</li>
-            <li>General Email: contact@company.com</li>
-            <li>Support Email: support@company.com</li>
-        </ul>
-        <ul>
-            <li>Contact Us</li>
-            <li><input type="text" placeholder="Your Email"></li>
-            <li><button>Submit</button></li>
-        </ul>
-</footer>
 
 <!-- Bootstrap Script -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -98,72 +135,7 @@
 <!-- Custom Script -->
 <script src="js/jquery.js"></script>
 <script src="js/keys.js"></script>
-<script>
-    (function() {
-        "use strict";
-        $().ready(function(){
-            // MAPBOX
-            const homeLocation = [-98.4916, 29.4252]; // San Antonio
-            mapboxgl.accessToken = 'pk.eyJ1IjoiZXJlbmNlaGF1c2VuIiwiYSI6ImNrZWQ4NXFvcTBjcnMycm1ucmxpbW1zMnIifQ.5G9N5cSAksdmyqrQ37Msqw';
-            const map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11',
-                center: homeLocation,
-                zoom: 11.15,
-                pitch: 20,
-                bearing: -17.6,
-                antialias: true
-            });
-            // End MAPBOX
-
-            const weatherInfo = $('#weather-info');
-            const api_endpoint = 'https://api.openweathermap.org/data/2.5/forecast';
-            // TODO: q = input return val
-            let q = 'portland'
-
-            // OPEN WEATHER MAP
-            $.get(api_endpoint, {
-                APPID: OPEN_WEATHER_APPID,
-                q: q,
-                units: "imperial"
-            }).done(function(data) {
-                console.log('5 day forecast', data);
-
-                /* TODO: create a loop to search for all weather info for each
-                         day starting at noon (inside list[i])
-                 */
-                let noon = data.list[i].dt_txt.split(' ')[1];
-                if(noon === '12:00:00'){
-                    console.log("it's high noon");
-                } else {
-                    console.log("No");
-                }
-                console.log(noon);
-                //  TODO: Add a button to each card.
-                /*  TODO: Button (when clicked) slides down additional info
-                          about that days weather.
-                 */
-                for(let i = 0; i < 5; i++) {
-                    let innerHTML;
-                    innerHTML += `<div class="card p-2">`+
-                        `<div class="container text-center">`+
-                        `<h2 class="mt-3 mb-0">${data.list[i].main.temp}&deg;F</h2>`+
-                        `<p class="font-weight-bolder mb-0">${data.list[i].main.temp_max}&deg;/${data.list[i].main.temp_min}&deg;</p><br>`+
-                        `</div>`+
-                        `<div class="card-body container-flex pt-0">`+
-                        `<p class="container"><span class="col">${data.list[i].main.feels_like}&deg;F</span> <span class="col-12">Feels-like</span></p>`+
-                        `<p class="d-flex justify-content-between">Humidity: <span class="text-right font-weight-bold">${data.list[i].main.humidity}%</span></p>`+
-                        `<p class="d-flex justify-content-between">Wind: <span class="text-right font-weight-bold">${data.list[i].wind.speed} mi/hr ${data.list[i].wind.deg}&deg; </span></p>`+
-                        `<p class="d-flex justify-content-between">Visibility: <span class="mr-0 font-weight-bold">${data.list[i].main.humidity} m</span></p>`+
-                        `<p class="d-flex justify-content-between">Pressure: <span class="mr-0 font-weight-bold">${data.list[i].main.pressure}hPa</span></p>`+
-                        `</div>`+
-                        `</div>`;
-                    weatherInfo.html(innerHTML);
-                }
-            });
-        });
-    })();
-</script>
+<script src="js/weather_map.js"></script>
 
 </body>
 </html>

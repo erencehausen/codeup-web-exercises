@@ -21,12 +21,10 @@
             input = input.toLowerCase()
             return input.charAt(0).toUpperCase() + input.slice(1)
         }
-        let fullName = '';
 
         for(let i = 0;  i< divs.length; i++){
             divs[i].innerText = `${upperCase(divs[i].innerText)} ${upperCase(name.lName)}\n`;
         }
-        console.log(fullName)
     })();
 </script>
 </body>

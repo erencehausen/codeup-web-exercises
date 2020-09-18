@@ -47,7 +47,7 @@
 <script>
     // This script works fine but let's update the JS!
     // TODO: REFACTOR AS MANY PARTS OF THIS SCRIPT FROM ES5 TO ES6 SYNTAX AS POSSIBLE
-    {
+
     "use strict";
 
     const showBtn = document.getElementById("showBtn");
@@ -82,8 +82,11 @@
     }
     const addHTMLToPage = movies => {
         const movieItems = document.getElementsByClassName('movie');
-        for (let movie of movies) {
-            movieItems.innerHTML = buildMovieHTML(movie);
+        let i = 0;
+        for (let movie of movieItems) {
+            console.table(movie)
+            movie.innerHTML = buildMovieHTML(movies[i]);
+            i++;
         }
     }
         // const addHTMLToPage = function (movies) {
@@ -95,7 +98,7 @@
     showBtn.addEventListener("click", () => {
         addHTMLToPage(movies);
     });
-    }
+
 </script>
 
 </body>

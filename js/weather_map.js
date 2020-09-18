@@ -1,6 +1,5 @@
 $().ready(function(){
 "use strict";
-const weatherHeader = $('#weather-header');
 const headerFlTemp = $('#header-fl-temp');
 const headerMinTemp = $('#header-min-temp');
 const headerDt = $('#header-dt');
@@ -14,6 +13,33 @@ const daysTab = $('#days-tab');
 const hoursButton = $('#hours-button');
 const daysButton = $('#days-button');
 daysTab.hide();
+let q = 'San Antonio'
+const parseJSON = response => {
+    return response.json();
+}
+
+const checkStatus = response => {
+    if (response.ok) {
+        return Promise.resolve(response);
+    } else {
+        return Promise.reject(new Error(response.statusText));
+    }
+}
+
+// Open Weather Map Request
+const weatherRequest = async weatherUrl => {
+    fetch(weatherUrl)
+        .then(checkStatus)
+        .then(parseJSON)
+        .catch(error => console.log('Problem', error))
+        .then(data => {
+            const weatherList = data.list;
+            displayLocation.html(q);
+            showWeatherHeader(weatherList)
+            showHoursTab(weatherList)
+            showDaysTab(weatherList)
+        })
+}
 
 // MAPBOX
 const homeLocation = [-98.4916, 29.4252]; // San Antonio
@@ -27,37 +53,9 @@ const map = new mapboxgl.Map({
     bearing: -17.6,
     antialias: true
 });
-
-// Open Weather Map Request
-let q = 'San Antonio'
-async function weatherRequest(weatherUrl) {
-    fetch(weatherUrl)
-        .then(checkStatus)
-        .then(parseJSON)
-        .catch(error => console.log('Problem', error))
-        .then(data => {
-            const weatherList = data.list;
-            displayLocation.html(q);
-            showWeatherHeader(weatherList)
-            showHoursTab(weatherList)
-            showDaysTab(weatherList)
-    })
-}
 weatherRequest(`http://api.openweathermap.org/data/2.5/forecast?q=San Antonio&appid=${OPEN_WEATHER_APPID}&units=imperial`);
 
-function checkStatus(response) {
-    if (response.ok) {
-        return Promise.resolve(response);
-    } else {
-        return Promise.reject(new Error(response.statusText));
-    }
-}
-
-function parseJSON(response) {
-    return response.json();
-}
-
-function showWeatherHeader(data) {
+const showWeatherHeader = data => {
     for (let i = 0; i <= 8; i++) {
         let dataMain = data[i].main;
         let dataWind = data[i].wind;

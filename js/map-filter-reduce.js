@@ -39,24 +39,29 @@ const users = [
 
 console.table(users)
 
-// TODO: .filter create array of 3 languages
-const languages = users.filter( n => {
+// 1
+const usersLanguages = users.filter( ({ languages } ) => languages) //
+console.log(usersLanguages)
 
-    const languageText = n.languages.join(' ');
-    createPTag.appendChild(createText + languageText)
-    // if (n.languages.length === 3) return ;
+// 2
+const usersEmails = users.map( ({email}) => email )
+console.log(usersEmails)
 
-})
+// 3
+const usersTotalYears = users.reduce((accum, {yearsOfExperience}) => (accum + yearsOfExperience), 0)
+console.log(usersTotalYears/users.length)
 
-// TODO: .map create array of string emails
+// 4
+const longestEmail = users.reduce((accum, {email}) => {
+    return (email.length > accum.length) ? email : accum;
+}, '')
+console.log(longestEmail)
+
+// 5
+const usersName = users.reduce((accum, {name}) => {
+    console.log(name)
+}, '')
 
 
-// TODO: .reduce total years and calculate average
-
-
-// TODO: .reduce longest email from list
-
-
-// TODO: .reduce string user names
 
 

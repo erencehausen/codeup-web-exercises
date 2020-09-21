@@ -12,4 +12,4 @@ function fizzbuzz(num) {
     }
 }
 
-fizzbuzz(30);git
+fizzbuzz(30);

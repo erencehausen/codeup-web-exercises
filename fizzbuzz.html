@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script>
+    "use strict";
+
+    const fizzbuzz = () => {
+        for (let i = 0; i <= 10; i++) {
+            if (i % 3 === 0) {
+                console.log("fizz")
+            } else if (i % 5 === 0) {
+                console.log("buzz")
+            } else if (i === 9) {
+                console.log('fizzbuzz')
+            } else {
+                return
+            }
+        }
+    }
+
+    fizzbuzz()
+
+
+
+</script>
+</body>
+</html>

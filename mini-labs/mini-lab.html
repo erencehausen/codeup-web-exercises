@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch mini-lab and examples</title>
+</head>
+<body>
+
+
+<script>
+    "use strict";
+    // const randomNum = (min, max) => {
+    //     min = Math.ceil(min);
+    //     max = Math.floor(max);
+    //     return Math.floor(Math.random() * (max - min + 1)) + min;
+    // }
+
+
+    let pokiFetch = fetch("https://pokeapi.co/api/v2/encounter-method/1")
+        .then(res => {
+            console.log(res)
+            return res.json()
+        })
+        .then(res => console.log(res))
+
+    let githubFetch = fetch("https://api.github.com/users")
+        .then(res => res.json())
+        .then(res => {
+            res.forEach(user => console.log(user));
+        })
+        .catch(error => console.log(error))
+
+    Promise.all([pokiFetch, githubFetch])
+        .then(data => {
+            console.log('Both are Complete!!!')
+            console.log(data);
+        })
+
+</script>
+</body>
+</html>

@@ -16,25 +16,38 @@
     // }
 
 
-    let pokiFetch = fetch("https://pokeapi.co/api/v2/encounter-method/1")
-        .then(res => {
-            console.log(res)
-            return res.json()
-        })
-        .then(res => console.log(res))
+    // let pokiFetch = fetch("https://pokeapi.co/api/v2/encounter-method/1")
+    //     .then(res => {
+    //         console.log(res)
+    //         return res.json()
+    //     })
+    //     .then(res => console.log(res))
+    //
+    // let githubFetch = fetch("https://api.github.com/users")
+    //     .then(res => res.json())
+    //     .then(res => {
+    //         res.forEach(user => console.log(user));
+    //     })
+    //     .catch(error => console.log(error))
+    //
+    // Promise.all([pokiFetch, githubFetch])
+    //     .then(data => {
+    //         console.log('Both are Complete!!!')
+    //         console.log(data);
+    //     })
 
-    let githubFetch = fetch("https://api.github.com/users")
-        .then(res => res.json())
-        .then(res => {
-            res.forEach(user => console.log(user));
+    Promise.resolve('one')
+        .then((one) => {
+            console.log(one);
+            return 'two';
         })
-        .catch(error => console.log(error))
-
-    Promise.all([pokiFetch, githubFetch])
-        .then(data => {
-            console.log('Both are Complete!!!')
-            console.log(data);
+        .then((two) => {
+            console.log(two);
+            return 'three';
         })
+        .then((three) => {
+            console.log(three);
+        });
 
 </script>
 </body>
